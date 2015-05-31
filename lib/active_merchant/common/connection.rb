@@ -112,6 +112,7 @@ module ActiveMerchant
       return unless endpoint.scheme == "https"
 
       http.use_ssl = true
+      http.ssl_version = :TLSv1  # poodle vulnarability fix
       
       if verify_peer
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
